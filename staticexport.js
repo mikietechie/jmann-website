@@ -36,7 +36,7 @@ pages.forEach(async (p) => {
     const res = await axios.get(index_url + p.route)
     let content = String(res.data)
     pages.forEach((ip) => {
-        content = content.replaceAll(`"${ip.route}"`, ip.file_name)
+        content = content.replaceAll(`"${ip.route}"`, `"${ip.file_name}"`)
     })
     content = content.replaceAll(`/public/`, 'public/')
     fs.writeFileSync(
