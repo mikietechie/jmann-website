@@ -6,6 +6,7 @@ const morgan = require('morgan')
 
 const app = express()
 const PORT = 5000
+exports.default = {PORT}
 
 app.use('/public', express.static(path.join(__dirname, 'src', 'public')))
 app.use(morgan("tiny"))
