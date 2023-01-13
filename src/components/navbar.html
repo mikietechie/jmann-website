@@ -1,0 +1,111 @@
+<nav id="main-nav-lg" class="bg-primary">
+    <div class="container py-2">
+        <div class="row upper pt-3 pb-1">
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <a href="/">
+                            <img class="w-100 img-thumbnail" src="/public/img/jmann-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-8">
+                        <table class="w-100">
+                            <thead>
+                                <tr>
+                                    <th>Opening Times</th>
+                                    <th>Mon-Fri</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Workington</td><td>7:30am-5pm</td></tr>
+                                <tr><td>Bulawayou</td><td>7:30am-5pm</td></tr>
+                                <tr><td>Graniteside</td><td>7:30am-5pm</td></tr>
+                                <tr><td>Gazaland</td><td>7:30am-5pm</td></tr>
+                            </tbody>
+                        </table>
+                        <caption>
+                            <small>
+                                <i>*Public Holiday & Lock Down hours may vary from above</i>
+                            </small>
+                        </caption>
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="row py-1">
+                            <div class="col-3">
+                                <a href="" class="btn btn-light w-100">Account</a>
+                            </div>
+                            <div class="col-3">
+                                <a href="" class="btn btn-light w-100">Wishlist</a>
+                            </div>
+                            <div class="col-3">
+                                <a href="" class="btn btn-light w-100">Sign In</a>
+                            </div>
+                            <div class="col-3">
+                                <a href="" class="btn btn-light w-100">Register</a>
+                            </div>
+                        </div>
+                        <div class="row py-1">
+                            <div class="col-8">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="">-- Branch --</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="">-- Currency --</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row py-1">
+                            <div class="col-12">
+                                <input placeholder="Product Search ..." type="text" class="w-100 form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 pt-lg-5">
+                <a href="" class="btn btn-outline-light w-100">
+                    <object data="/public/img/icons/cart.png" class="glyphicon-24"></object>&nbsp;&nbsp;My Cart
+                </a>
+            </div>
+        </div>
+        <div class="row lower pt-3">
+            <div class="col-12">
+                <ul class="d-inline-flex p-0">
+                    <li>
+                        <a href="/" class="{% if req.path == '/' %}active {% endif %}">HOME</a>
+                    </li>
+                    <li>
+                        <a href="/store" class="{% if req.path == '/store' %}active{% endif %}">STORE</a>
+                    </li>
+                    <li>
+                        <a href="/store" class="d-none {% if req.path == '/store' %}active{% endif %}">CATEGORIES</a>
+                    </li>
+                    <li>
+                        <a href="/store" class="d-none {% if req.path == '/store' %}active{% endif %}">BRANDS</a>
+                    </li>
+                    <li>
+                        <a href="/about" class="{% if req.path == '/about' %}active{% endif %}">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="/contact" class="{% if req.path == '/contact' %}active{% endif %}">CONTACT</a>
+                    </li>
+                    <li>
+                        <a href="/email" class="d-none {% if req.path == '/email' %}active{% endif %}">EMAIL</a>
+                    </li>
+                </ul>
+                <a href="" class="float-end">
+                   <object data="/public/img/icons/facebook.svg" class="glyphicon-24"></object>&nbsp;Find us on Facebook</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+  

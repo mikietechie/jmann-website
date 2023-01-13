@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% block meta %}
+    {% endblock meta %}
+    {% block css %}
+    <link rel="stylesheet" href="/public/vendors/bootstrap5/css/yeti.bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    {% endblock css %}
+    {% block styles %}
+    {% endblock styles %}
+</head>
+<body>
+    {% block body %}
+    {% include 'components/navbar.html' %}
+    <main>
+        {% block main %}
+        <section style="height: 100vh;"></section>
+        {% endblock main %}
+    </main>
+    {% include 'components/footer.html' %}
+    {% endblock body %}
+    {% block js %}
+    <script src="/public/js/main.js"></script>
+    {% endblock js %}
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>

@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+
+{% block styles %}
+<style>
+    #contact-us-map {
+        height: 500px;
+    }
+</style>
+{% endblock styles %}
+    
+
+{% block main %}
+    <section class="container">
+        <div class="row pt-3 mb-3">
+            <div class="col-12">
+                <p>
+                    <a href="/">Home</a>
+                    &nbsp;>&nbsp;
+                    <a href="/contact">Contact Us</a>
+                </p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <h1 class="text-start"><b class="underline-black underline-offset-8">Con</b>tact Us</h1>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div id="contact-us-map"></div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            {% for branch in branches %}
+            <div class="col-md-6 col-lg-4 mb-5">
+                <h5 class="mb-3">{{branch.name}}</h5>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{branch.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td>{{branch.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Telephone</td>
+                            <td>{{branch.telephone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>{{branch.address}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mon-Friday</td>
+                            <td>{{branch.mon_fri_opening}}</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>{{branch.sat_opening}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>{{branch.sun_opening}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock main %}
+
+
+{% block js %}
+    {{ super() }}
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_sAKme3GQFuv4BVB-e7SAqiiaAAZmlm4&callback=initMap&v=weekly" defer></script> -->
+{% endblock js %}
+
+{% block scripts %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_sAKme3GQFuv4BVB-e7SAqiiaAAZmlm4&callback=initMap&v=weekly" defer></script>
+<script>    function initMap() {
+    // The map, centered at location
+    const map = new google.maps.Map(document.getElementById("contact-us-map"), {
+        zoom: 6,
+        center: {lat: -17.8216, lng: 31.094932426732683},
+        // mapTypeId: 'satellite'
+    });
+    {% for branch in branches %}
+    new google.maps.Marker({
+        position: {lat: parseFloat("{{branch.lat}}"), lng: parseFloat("{{branch.long}}")},
+        map: map,
+        title: "{{branch.name}}",
+    });
+    {% endfor %}
+}
+window.initMap = initMap;
+</script>
+{% endblock scripts %}
+    
+    
