@@ -1,6 +1,5 @@
 const path = require("path")
 const fs = require("fs")
-const os = require("os")
 const fse = require("fs-extra")
 const axios = require("axios")
 
@@ -53,4 +52,3 @@ fse.copySync(
     path.join(buildDirPath, "public"),
     {overwrite: true}
 )
-console.log("Done!!!")
