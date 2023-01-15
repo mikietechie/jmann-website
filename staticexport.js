@@ -37,6 +37,7 @@ pages.forEach(async (p) => {
     let content = String(res.data)
     pages.forEach((ip) => {
         content = content.replaceAll(`"${ip.route}"`, `"${ip.file_name}"`)
+        content = content.replaceAll(`"${ip.route}?`, `"${ip.file_name}?`)
     })
     content = content.replaceAll(`/public/`, 'public/')
     fs.writeFileSync(
