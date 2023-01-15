@@ -13,6 +13,9 @@ body {
 .underline-offset-8 {
     text-underline-offset: 8px;
 }
+.letter-spacing-8px {
+    letter-spacing: 8px;
+}
 .underline-black {
     text-decoration: underline;
     text-decoration-color: #008cba;
@@ -24,6 +27,21 @@ body {
 }
 .vh-100 {
     min-height: 100vh;
+}
+.h-500-px {
+    height: 500px;
+}
+.h-400-px {
+    height: 400px;
+}
+.h-300-px {
+    height: 300px;
+}
+.h-200-px {
+    height: 200px;
+}
+.h-100-px {
+    height: 100px;
 }
 /* END OF UTILITIES */
 

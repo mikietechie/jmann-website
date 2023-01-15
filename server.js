@@ -5,8 +5,7 @@ const nunjucks = require("nunjucks")
 const morgan = require('morgan')
 
 const app = express()
-const PORT = 5000
-exports.default = {PORT}
+const PORT = process.env.PORT || 5000
 
 app.use('/public', express.static(path.join(__dirname, 'src', 'public')))
 app.use(morgan("tiny"))
@@ -17,7 +16,9 @@ nunjucks.configure('src', {
 })
 
 app.get('/', function(req, res) {
-    res.render('index.html', {req})
+    const categories = require("./categories.json")
+    const brands = require("./brands.json")
+    res.render('index.html', {req, categories, brands})
 })
 
 app.get('/about', function(req, res) {
@@ -26,7 +27,6 @@ app.get('/about', function(req, res) {
 
 app.get('/contact', function(req, res) {
     const branches = require("./branches.json")
-    console.log(branches)
     res.render('contact.html', {req, branches})
 })
 app.get('/email', function(req, res) {

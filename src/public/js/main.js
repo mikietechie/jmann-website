@@ -6,4 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
             $a.click()
         })
     })
+
+
+    // mike's carousel
+    document.querySelectorAll(".scroll-row").forEach(($scrollRow) => {
+        const $scrollRowItem = $scrollRow.querySelector(".scroll-row-item")
+        const $scrollRowScrollLeft = $scrollRow.parentElement.querySelector(".scroll-row-left")
+        const $scrollRowScrollRight = $scrollRow.parentElement.querySelector(".scroll-row-right")
+        $scrollRowScrollLeft.addEventListener("click", () => {
+            $scrollRow.scrollLeft -= $scrollRowItem.scrollWidth
+        })
+        $scrollRowScrollRight.addEventListener("click", () => {
+            $scrollRow.scrollLeft += $scrollRowItem.scrollWidth
+        })
+    })
 })

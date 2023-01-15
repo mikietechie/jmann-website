@@ -23,7 +23,7 @@ const pages = [
 ]
 
 const buildDirPath = path.join(__dirname, "build")
-// fs.rmdirSync(buildDirPath)
+
 try {
     fs.mkdirSync(buildDirPath)
     console.log("Build build dir")

@@ -1,1 +1,85 @@
 {% extends 'layout.html' %}
+
+
+{% block styles %}
+<style>
+    #brands-row, #categories-row {
+        display: inline-flex;
+        overflow-x: scroll;
+        max-width: 100%;
+        padding: 24px;
+    }
+    #brands-row img, #categories-row img {
+        margin: auto 16px;
+        width: 300px;
+        height: 300px;
+    }
+</style>
+{% endblock styles %}
+    
+
+{% block main %}
+    <section class="container undecorated-links">
+        <div class="row mb-3 mt-3">
+            <div class="col-12">
+                <img id="header-img" src="/public/img/jmann-header.jpg" alt="" class="w-100 h-500-px">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <h2 class="mb-3"><b class="underline-black underline-offset-8 letter-spacing-8px">Abo</b>ut Us</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum nihil dicta dolor aliquid quia veritatis, labore provident consequatur? Voluptatibus nemo voluptatem laboriosam est modi quae.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem necessitatibus voluptates non, suscipit maxime minus?
+                </p>
+                <p class="text-center">
+                    <a href="/about" class="btn btn-link w-100">More</a>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="/public/img/jmann1.jpg" alt="" class="w-100  h-300-px">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <h2 class="mb-3 text-center"><b class="underline-black underline-offset-8 letter-spacing-8px">Fea</b>tured Categories</h2>
+                <p class="text-end">
+                    <button class="btn btn-primary me-2 scroll-row-left"><</button>
+                    <button class="btn btn-primary ms-2 scroll-row-right">></button>
+                </p>
+                <div class="bg-primary scroll-row white-links" id="categories-row">
+                    {% for category in categories %}
+                    <a href="/store?category={{category.name}}" class="scroll-row-item">
+                        <div>
+                            <img src="{{category.img}}" alt="">
+                            <h5 class="text-center mt-1">{{category.name}}</h5>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <h2 class="mb-3 text-center"><b class="underline-black underline-offset-8 letter-spacing-8px">Fea</b>tured Brands</h2>
+                <p class="text-start">
+                    <button class="btn btn-primary me-2 scroll-row-left"><</button>
+                    <button class="btn btn-primary ms-2 scroll-row-right">></button>
+                </p>
+                <div class="bg-primary scroll-row white-links" id="brands-row">
+                    {% for brand in brands %}
+                    <a href="/store?brand={{brand.name}}" class="scroll-row-item">
+                        <div>
+                            <img src="{{brand.img}}" alt="">
+                            <h5 class="text-center mt-1">{{brand.name}}</h5>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock main %}
+    

@@ -1,0 +1,34 @@
+[
+    {
+        "name": "couplings",
+        "img": "/public/img/jmann-couplings.jpg"
+    },
+    {
+        "name": "flenges",
+        "img": "/public/img/jmann-flenges.jpg"
+    },
+    {
+        "name": "horses",
+        "img": "/public/img/jmann-horses.jpg"
+    },
+    {
+        "name": "orses",
+        "img": "/public/img/jmann-orses.jpg"
+    },
+    {
+        "name": "pipes",
+        "img": "/public/img/jmann-pipes.jpg"
+    },
+    {
+        "name": "shafts",
+        "img": "/public/img/jmann-shafts.jpg"
+    },
+    {
+        "name": "sprockets",
+        "img": "/public/img/jmann-sprockets.jpg"
+    },
+    {
+        "name": "tubes",
+        "img": "/public/img/jmann-tubes.jpg"
+    }
+]
