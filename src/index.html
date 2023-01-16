@@ -3,16 +3,22 @@
 
 {% block styles %}
 <style>
-    #brands-row, #categories-row {
+    #products-row, #categories-row {
         display: inline-flex;
         overflow-x: scroll;
         max-width: 100%;
         padding: 24px;
     }
-    #brands-row img, #categories-row img {
+    #products-row .scroll-row-item, #categories-row .scroll-row-item {
         margin: auto 16px;
-        width: 300px;
+    }
+    #products-row img {
         height: 300px;
+        width: 300px;
+    }
+    #categories-row img {
+        height: 250px;
+        width: 200px;
     }
 </style>
 {% endblock styles %}
@@ -49,12 +55,12 @@
                     <button class="btn btn-primary me-2 scroll-row-left"><</button>
                     <button class="btn btn-primary ms-2 scroll-row-right">></button>
                 </p>
-                <div class="bg-primary scroll-row white-links" id="categories-row">
+                <div class="bg-primary scroll-row scroll white-links" id="categories-row">
                     {% for category in categories %}
                     <a href="/store?category={{category.name}}" class="scroll-row-item">
                         <div>
-                            <img src="{{category.img}}" alt="">
-                            <h5 class="text-center mt-1">{{category.name}}</h5>
+                            <img src="{{category.img}}" alt="" class="">
+                            <h5 class="text-center mt-1 text-uppercase">{{category.name}}</h5>
                         </div>
                     </a>
                     {% endfor %}
@@ -63,19 +69,25 @@
         </div>
         <div class="row mb-3">
             <div class="col-12">
-                <h2 class="mb-3 text-center"><b class="underline-black underline-offset-8 letter-spacing-8px">Fea</b>tured Brands</h2>
+                <h2 class="mb-3 text-center"><b class="underline-black underline-offset-8 letter-spacing-8px">Fea</b>tured Products</h2>
                 <p class="text-start">
                     <button class="btn btn-primary me-2 scroll-row-left"><</button>
                     <button class="btn btn-primary ms-2 scroll-row-right">></button>
                 </p>
-                <div class="bg-primary scroll-row white-links" id="brands-row">
-                    {% for brand in brands %}
-                    <a href="/store?brand={{brand.name}}" class="scroll-row-item">
-                        <div>
-                            <img src="{{brand.img}}" alt="">
-                            <h5 class="text-center mt-1">{{brand.name}}</h5>
+                <div class="bg-primary scroll-row scroll white-links" id="products-row">
+                    {% for product in products %}
+                    <div class="scroll-row-item">
+                        <div class="card">
+                            <div class="card-header">
+                                <img src="{{product.img}}" alt="" class="card-img">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center text-uppercase">{{product.name}}</h5>
+                                <p class="text-center"><b>${{product.price}}</b></p>
+                                <p class="text-center">QTY in stock: {{product.qty}}</p>
+                            </div>
                         </div>
-                    </a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>

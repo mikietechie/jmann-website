@@ -17,8 +17,8 @@ nunjucks.configure('src', {
 
 app.get('/', function(req, res) {
     const categories = require("./categories.json")
-    const brands = require("./brands.json")
-    res.render('index.html', {req, categories, brands})
+    const products = require("./products.json")
+    res.render('index.html', {req, categories, products})
 })
 
 app.get('/about', function(req, res) {
