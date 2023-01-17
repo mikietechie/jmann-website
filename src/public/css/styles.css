@@ -3,6 +3,14 @@ body {
     min-height: 100% !important;
 }
 
+/* BOOTSTRAP OVERIDE */
+.form-control:focus, .form-select:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+/* END OF BOOTSTRAP OVERIDE */
+
+
 /* UTILITIES */
 .scroll::-webkit-scrollbar {
     width: 12px;
@@ -89,3 +97,7 @@ nav#main-nav-lg .lower a:hover, nav#main-nav-lg .lower a.active {
     text-underline-offset: 8px;
 }
 /* END OF NAVBAR */
+
+#main-footer-lg {
+    margin-top: 40px;
+}

@@ -1,1 +1,155 @@
 {% extends 'layout.html' %}
+
+
+{% block styles %}
+<style>
+    #email-form #msg-box {
+        display: none;
+    }
+    #email-form textarea {
+        height: 200px;
+    }
+</style>
+{% endblock styles %}
+    
+    
+
+{% block main %}
+    <section class="container">
+        <div class="row pt-3 mb-3">
+            <div class="col-12">
+                <p>
+                    <a href="/">Home</a>
+                    &nbsp;>&nbsp;
+                    <a href="/Email">Email Us</a>
+                </p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <h1 class="text-start"><b class="underline-black underline-offset-8 letter-spacing-8px">Ema</b>il Us</h1>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-9">
+                <form action="/email" method="post" id="email-form">
+                    <div class="row" id="msg-box">
+                        <div class="col-12 mb-5">
+                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <button type="button" class="btn-close"></button>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="first-name" placeholder="Mike">
+                                <label for="first-name">First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="last-name" placeholder="Doe">
+                                <label for="last-name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="company-name" placeholder="Engineering Inc">
+                                <label for="company-name">Company Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="mike@mail.com">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <div class="form-floating">
+                                <input type="tel" class="form-control" id="phone" placeholder="07000000">
+                                <label for="phone">Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="form-floating">
+                                <select class="form-select" id="branch">
+                                    <option value="">--JMann Branch --</option>
+                                    {% for branch in branches %}
+                                    <option value="{{branch.name}}">{{branch.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="phone">Branch</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="subject" placeholder="Quotation Request">
+                                <label for="subject">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="body" placeholder="Please ......"></textarea>
+                                <label for="body">Body</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="reset" class="btn btn-lg btn-secondary mx-3">Cancel</button>
+                            <button type="submit" class="btn btn-lg btn-primary mx-3 px-5">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock main %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // const $form = document.getElementById("email-form")
+        const $form = document.querySelector("form")
+        const $msgBox = $form.querySelector("#msg-box")
+        const $msgBoxCloseBtn = $msgBox.querySelector("button.btn-close")
+        $msgBoxCloseBtn.addEventListener("click", () => {
+            $msgBox.style.display = 'none'
+        })
+        const showFormMsg = (msg, cssclass="primary") => {
+            $msgBox.querySelector("p").innerHTML = msg
+            const $alert = $msgBox.querySelector(".alert")
+            let classnames = $alert.className;
+            ["danger", "primary", "success", "warning", "light", "secondary", "info"].forEach(i => {
+                classnames = classnames.replaceAll(i, cssclass)
+            })
+            $alert.className = classnames
+            $msgBox.style.display = 'block'
+            $msgBox.scrollIntoView()
+        }
+        $form.addEventListener("submit", async (e) => {
+            alert($form.action)
+            e.preventDefault()
+            try {
+                const res = await fetch({
+                    url: $form.action,
+                    formData: new FormData($form),
+                })
+                if (res.ok) {
+                    showFormMsg("Email Sent!!!", "sucess")
+                    $form.reset()
+                } else {
+                    showFormMsg("Email failed to send!!!", "warning")
+                }
+            } catch (e) {
+                showFormMsg("Client failed to send!!!", "danger")
+            }
+            return false
+        })
+    })
+</script>
+{% endblock scripts %}
+    
+    
