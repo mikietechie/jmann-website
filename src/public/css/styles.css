@@ -79,6 +79,10 @@ nav#main-nav-lg img {
     max-height: 120px;
 }
 
+nav#main-nav-lg ul {
+    overflow-x: auto;
+}
+
 nav#main-nav-lg li {
     list-style: none;
 }
@@ -94,7 +98,8 @@ nav#main-nav-lg .lower a {
 nav#main-nav-lg .lower a:hover, nav#main-nav-lg .lower a.active {
     text-decoration: underline;
     text-decoration-thickness: 3px;
-    text-underline-offset: 8px;
+    text-underline-offset: 4px;
+    opacity: 0.9;
 }
 /* END OF NAVBAR */
 
