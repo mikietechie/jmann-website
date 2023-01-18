@@ -5,10 +5,12 @@
                 <h1><span class="text-decoration-underline underline-offset-8">SIGN UP</span> FOR NEWSLETTER</h1>
             </div>
             <div class="col-md-6">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg" placeholder="Enter Your Email Address">
-                    <button class="btn btn-primary"><b>Subscribe</b></button>
-                </div>
+                <form action="/subscibe-email" id="subscribe-email-address-form">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control form-control-lg" placeholder="Enter Your Email Address" required>
+                        <button type="submit" class="btn btn-primary" placeholder><b>Subscribe</b></button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row py-5 border-bottom border-top border-white">

@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
             $a.click()
         })
     })
-
-
     // mike's carousel
     document.querySelectorAll(".scroll-row").forEach(($scrollRow) => {
         const $scrollRowItem = $scrollRow.querySelector(".scroll-row-item")
@@ -19,5 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
         $scrollRowScrollRight.addEventListener("click", () => {
             $scrollRow.scrollLeft += $scrollRowItem.scrollWidth
         })
+    })
+    // footer subscribe email address
+    const $subscribeEmailAddressForm = document.querySelector("form#subscribe-email-address-form")
+    $subscribeEmailAddressForm.addEventListener("submit", async (e) => {
+        e.preventDefault()
+        const $subscribeEmailAddressInput = document.querySelector("form#subscribe-email-address-form")
+        try {
+            const res = await fetch({
+                url: $subscribeEmailAddressForm.action,
+                body: {emailAddress: $subscribeEmailAddressInput.value}
+            })
+            if (res.ok) {
+                alert("Email subscription successful!")
+                $subscribeEmailAddressForm.reset()
+            } else {
+                alert("Email subscription failed!")
+            }
+        } catch (error) {
+            alert("Error!")
+        }
+        return false
     })
 })
