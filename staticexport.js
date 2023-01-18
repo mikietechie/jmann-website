@@ -20,6 +20,10 @@ const pages = [
         file_name: "store.html",
         route: "/store",
     },
+    {
+        file_name: "email.html",
+        route: "/email",
+    },
 ]
 
 const buildDirPath = path.join(__dirname, "build")
