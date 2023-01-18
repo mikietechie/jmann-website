@@ -48,6 +48,21 @@ body {
     width: 24px;
     height: 24px;
 }
+.glyphicon-20 {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+.glyphicon-12 {
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+}
+.glyphicon-16 {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
 .vh-100 {
     min-height: 100vh;
 }

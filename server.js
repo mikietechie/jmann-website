@@ -35,7 +35,8 @@ app.get('/email', function(req, res) {
 })
 
 app.get('/store', function(req, res) {
-    res.render('store.html', {req})
+    const products = require("./data/products.json")
+    res.render('store.html', {req, products})
 })
 
 const server = http.createServer(app)

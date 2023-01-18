@@ -1,3 +1,119 @@
 {% extends 'layout.html' %}
 
 {% block title %}JMann | Store{% endblock title %}
+
+
+{% block styles %}
+<style>
+    .no-items-alert {
+        font-weight: bolder;
+        font-size: 24px;
+    }
+</style>
+{% endblock styles %}
+    
+
+
+{% block main %}
+    <section class="container">
+        <div class="row pt-3 mb-3">
+            <div class="col-12">
+                <p>
+                    <a href="/">Home</a>
+                    &nbsp;>&nbsp;
+                    <a href="/store">JMann Store</a>
+                </p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <h1 class="text-start"><b class="underline-black underline-offset-8 letter-spacing-8px">Sho</b>p Here</h1>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <p class="text-end">
+                    <div class="input-group mb-3">
+                        <input type="search" class="form-control form-control-lg" id="product-name-search" placeholder="Product Name" required>
+                        <button class="btn btn-primary disabled" placeholder>
+                            <b>Search&nbsp;</b>
+                            <object data="/public/vendors/fontawesome/svgs/solid/binoculars.svg" class="glyphicon-20"></object>
+                        </button>
+                    </div>
+                </p>
+                <div class="text-end">
+                    <button class="btn btn-secondary">
+                        Filters&nbsp;<object data="/public/vendors/fontawesome/svgs/solid/filter.svg" class="glyphicon-20"></object>
+                    </button>
+                </div>
+            </div>
+            <div class="col-12">
+
+            </div>
+        </div>
+        <div class="row mb-3">
+            {% for product in products %}
+            <div class="col-lg-3 col-md-4 col-sm-12 mb-5">
+                <div class="card product-card w-100">
+                    <img src="{{product.img}}" class="card-img-top h-300-px" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text"><b>${{product.price}} USD</b></p>
+                        <p class="card-text">Available qty {{product.qty}}</p>
+                        <button class="btn btn-primary px-5" onclick="javascript: alert('Added {{product.name}} to cart!')">
+                            Buy&nbsp;<object data="/public/vendors/fontawesome/svgs/solid/cart-plus.svg" class="glyphicon-20"></object>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12">
+                <div class="alert alert-primary no-items-alert">
+                    <p class="text-center">
+                        <b>No items found!</b>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6 mx-auto">
+                <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; prev</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">next &raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </section>
+{% endblock main %}
+
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const $sEl = document.querySelector("input#product-name-search")
+        $sEl.addEventListener("keyup", (e) => {
+            const searchv = e.target.value
+            document.querySelectorAll(".product-card").forEach((el) => {
+                const $pEl = el.parentElement
+                const $h5 = el.querySelector("h5")
+                if ($h5.innerText.toLowerCase().includes(searchv.toLowerCase())) {
+                    $pEl.classList.remove("d-none")
+                } else {
+                    $pEl.classList.add("d-none")
+                }
+            })
+        })
+    })
+</script>
+{% endblock scripts %}
+    
