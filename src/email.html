@@ -34,7 +34,7 @@
             <div class="col-lg-9">
                 <form action="/email" method="post" id="email-form">
                     <div class="row" id="msg-box">
-                        <div class="col-12 mb-5">
+                        <div class="col-12 mb-3">
                             <div class="alert alert-primary alert-dismissible fade show" role="alert">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 <button type="button" class="btn-close"></button>
@@ -42,63 +42,63 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 mb-5">
+                        <div class="col-md-6 mb-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="first-name" placeholder="Mike">
                                 <label for="first-name">First Name</label>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-5">
+                        <div class="col-md-6 mb-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="last-name" placeholder="Doe">
                                 <label for="last-name">Last Name</label>
                             </div>
                         </div>
-                        <div class="col-md-12 mb-5">
+                        <div class="col-md-12 mb-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="company-name" placeholder="Engineering Inc">
                                 <label for="company-name">Company Name</label>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-5">
+                        <div class="col-md-6 mb-3">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="mike@mail.com">
-                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="mike@mail.com" required>
+                                <label for="email">Email <b class="text-danger">*</b></label>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-5">
+                        <div class="col-md-6 mb-3">
                             <div class="form-floating">
-                                <input type="tel" class="form-control" id="phone" placeholder="07000000">
-                                <label for="phone">Phone</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="07000000" required minlength="6" maxlength="16">
+                                <label for="phone">Phone <b class="text-danger">*</b></label>
                             </div>
                         </div>
-                        <div class="col-md-12 mb-5">
+                        <div class="col-md-12 mb-3">
                             <div class="form-floating">
-                                <select class="form-select" id="branch">
+                                <select class="form-select" id="branch" required>
                                     <option value="">--JMann Branch --</option>
                                     {% for branch in branches %}
                                     <option value="{{branch.name}}">{{branch.name}}</option>
                                     {% endfor %}
                                 </select>
-                                <label for="phone">Branch</label>
+                                <label for="phone">Branch <b class="text-danger">*</b></label>
                             </div>
                         </div>
-                        <div class="col-md-12 mb-5">
+                        <div class="col-md-12 mb-3">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="subject" placeholder="Quotation Request">
-                                <label for="subject">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Quotation Request" required minlength="3">
+                                <label for="subject">Subject <b class="text-danger">*</b></label>
                             </div>
                         </div>
-                        <div class="col-md-12 mb-5">
+                        <div class="col-md-12 mb-3">
                             <div class="form-floating">
-                                <textarea class="form-control" id="body" placeholder="Please ......"></textarea>
-                                <label for="body">Body</label>
+                                <textarea class="form-control" id="body" placeholder="Please ......" required minlength="10"></textarea>
+                                <label for="body">Body <b class="text-danger">*</b></label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
-                            <button type="reset" class="btn btn-lg btn-secondary mx-3">Cancel</button>
+                            <button type="reset" class="btn btn-lg btn-secondary mx-3">Reset</button>
                             <button type="submit" class="btn btn-lg btn-primary mx-3 px-5">Send</button>
                         </div>
                     </div>
