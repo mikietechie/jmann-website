@@ -32,6 +32,9 @@
         </div>
         <div class="row mb-3">
             <div class="col-12">
+                <p>
+                    <caption><b id="items-found">{{ products | length }}</b>&nbsp;Items Found</caption>
+                </p>
                 <p class="text-end">
                     <div class="input-group mb-3">
                         <input type="search" class="form-control form-control-lg" id="product-name-search" placeholder="Product Name" required>
@@ -41,11 +44,11 @@
                         </button>
                     </div>
                 </p>
-                <div class="text-end">
+                <!-- <div class="text-end">
                     <button class="btn btn-secondary">
                         Filters&nbsp;<object data="/public/vendors/fontawesome/svgs/solid/filter.svg" class="glyphicon-20"></object>
                     </button>
-                </div>
+                </div> -->
             </div>
             <div class="col-12">
 
@@ -100,18 +103,21 @@
 {% block scripts %}
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const $sEl = document.querySelector("input#product-name-search")
+        const $sEl = document.getElementById("product-name-search")
         $sEl.addEventListener("keyup", (e) => {
             const searchv = e.target.value
+            let itemsFound = 0
             document.querySelectorAll(".product-card").forEach((el) => {
                 const $pEl = el.parentElement
                 const $h5 = el.querySelector("h5")
                 if ($h5.innerText.toLowerCase().includes(searchv.toLowerCase())) {
                     $pEl.classList.remove("d-none")
+                    itemsFound++
                 } else {
                     $pEl.classList.add("d-none")
                 }
             })
+            document.getElementById("items-found").innerText = itemsFound
         })
     })
 </script>
