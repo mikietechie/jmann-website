@@ -1,5 +1,7 @@
 {% extends 'layout.html' %}
 
+{% block title %}JMann | Email Us{% endblock title %}
+
 
 {% block styles %}
 <style>
@@ -98,8 +100,8 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-lg btn-primary mx-3 px-5 mb-3">Send</button>
                             <button type="reset" class="btn btn-lg btn-secondary mx-3">Reset</button>
-                            <button type="submit" class="btn btn-lg btn-primary mx-3 px-5">Send</button>
                         </div>
                     </div>
                 </form>
@@ -130,7 +132,6 @@
             $msgBox.scrollIntoView()
         }
         $form.addEventListener("submit", async (e) => {
-            alert($form.action)
             e.preventDefault()
             try {
                 const res = await fetch({

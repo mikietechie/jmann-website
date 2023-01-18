@@ -31,16 +31,16 @@
                     </div>
                     <div class="col-lg-5 col-md-12">
                         <div class="row py-1">
-                            <div class="col-3">
+                            <div class="col-md-3 col-6 mb-1">
                                 <a href="" class="btn btn-light w-100">Account</a>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3 col-6 mb-1">
                                 <a href="" class="btn btn-light w-100">Wishlist</a>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3 col-6">
                                 <a href="" class="btn btn-light w-100">Sign In</a>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3 col-6">
                                 <a href="" class="btn btn-light w-100">Register</a>
                             </div>
                         </div>
@@ -78,18 +78,12 @@
         </div>
         <div class="row lower pt-3">
             <div class="col-12">
-                <ul class="d-inline-flex p-0">
+                <ul class="d-inline-flex p-0 w-100 overflow-scroll">
                     <li>
                         <a href="/" class="{% if req.path == '/' %}active {% endif %}">HOME</a>
                     </li>
                     <li>
                         <a href="/store" class="{% if req.path == '/store' %}active{% endif %}">STORE</a>
-                    </li>
-                    <li>
-                        <a href="/store" class="d-none {% if req.path == '/store' %}active{% endif %}">CATEGORIES</a>
-                    </li>
-                    <li>
-                        <a href="/store" class="d-none {% if req.path == '/store' %}active{% endif %}">BRANDS</a>
                     </li>
                     <li>
                         <a href="/about" class="{% if req.path == '/about' %}active{% endif %}">ABOUT</a>
