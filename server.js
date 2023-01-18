@@ -16,8 +16,8 @@ nunjucks.configure('src', {
 })
 
 app.get('/', function(req, res) {
-    const categories = require("./categories.json")
-    const products = require("./products.json")
+    const categories = require("./data/categories.json")
+    const products = require("./data/products.json")
     res.render('index.html', {req, categories, products})
 })
 
@@ -26,11 +26,12 @@ app.get('/about', function(req, res) {
 })
 
 app.get('/contact', function(req, res) {
-    const branches = require("./branches.json")
+    const branches = require("./data/branches.json")
     res.render('contact.html', {req, branches})
 })
 app.get('/email', function(req, res) {
-    res.render('email.html', {req})
+    const branches = require("./data/branches.json")
+    res.render('email.html', {req, branches})
 })
 
 app.get('/store', function(req, res) {
